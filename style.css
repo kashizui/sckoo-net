@@ -1,0 +1,24 @@
+#piano, #overlay {
+	position: absolute;
+	display: none;
+}
+
+#links {
+	position: relative;
+}
+
+.chord-link {
+	display: none;
+}
+
+.chord-letter {
+	color: #888888;
+	font-size: xx-large;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	font-weight: bold;
+}
+
+a:hover {
+	opacity: 0.5;
+	background-color: #EEEEEE;
+}
