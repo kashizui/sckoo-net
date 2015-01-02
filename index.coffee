@@ -1,6 +1,7 @@
 TRUE_WIDTH = 1003
 WHITE_WIDTH = 94
 BLACK_WIDTH = 63
+BLACK_HEIGHT_FRACTION = 0.60
 KEY_X_OFFSETS =
   "c1":   4
   "c#1":  73
@@ -35,7 +36,7 @@ $(document).ready ->
     width: $("#piano").width()
     height: $("#piano").height()
   scale = size.width / TRUE_WIDTH
-  
+
   # Scale widths and offsets
   WHITE_WIDTH *= scale
   BLACK_WIDTH *= scale
@@ -50,10 +51,10 @@ $(document).ready ->
 
     $("#piano, #overlay, #links").offset newOffset
   $(window).resize reset
-  
-  # process links 
+
+  # process links
   $links = $("#links").find ".chord-link"
-  linkHeight = size.height / $links.length
+  linkHeight = size.height * BLACK_HEIGHT_FRACTION / $links.length
   linkTopOffset = 0
   for link in $links
     $link = $ link
@@ -89,10 +90,10 @@ $(document).ready ->
         display: "none"
 
     linkTopOffset += linkHeight
-    
-  # Execute now 
+
+  # Execute now
   reset()
   $("#piano").fadeIn "slow", ->
-    # when fade in complete 
+    # when fade in complete
     $("#overlay").show()
     $(".chord-letter").fadeIn "slow"
